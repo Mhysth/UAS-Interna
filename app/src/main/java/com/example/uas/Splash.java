@@ -9,6 +9,7 @@ import android.os.Handler;
 import com.example.uas.utils.SharedPreferenceHelper;
 
 public class Splash extends AppCompatActivity {
+
     SharedPreferenceHelper helper;
 
     @Override
@@ -16,18 +17,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         helper = SharedPreferenceHelper.getInstance(this);
-
-        /*new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent onBoard = new Intent(Splash.this, Login.class);
-                onBoard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(onBoard);
-                finish();
-            }
-        }, 1000);*/
     }
-
     @Override
     protected void onStart() {
         super.onStart();

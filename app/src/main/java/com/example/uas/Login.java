@@ -2,12 +2,10 @@ package com.example.uas;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -15,13 +13,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.uas.utils.SharedPreferenceHelper;
 import com.example.uas.viewModel.LoginViewModel;
-
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +32,7 @@ public class Login extends AppCompatActivity {
     Button btnLogin;
     @BindView(R.id.check_password)
     CheckBox check_pass;
-
+    String mail, pass;
 
     private LoginViewModel viewModel;
     private SharedPreferenceHelper helper;
@@ -47,14 +42,32 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        editEmail = findViewById(R.id.edtEmail);
+        editPassword = findViewById(R.id.edtPassword);
+        btnLogin = findViewById(R.id.login_btn);
+
+        TextWatcher TW = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mail = editEmail.getText().toString().trim();
+                pass = editPassword.getText().toString().trim();
+                btnLogin.setEnabled(!mail.isEmpty() && !pass.isEmpty());
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        };
+        editEmail.addTextChangedListener(TW);
+        editPassword.addTextChangedListener(TW);
 
         ButterKnife.bind(this);
        // Objects.requireNonNull((this).getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
-
         //TODO: Place viewModel implementation here
         viewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         helper = SharedPreferenceHelper.getInstance(this);
-
         check_pass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
@@ -68,7 +81,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
     @OnClick({R.id.login_btn})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -94,6 +106,4 @@ public class Login extends AppCompatActivity {
             //   break;
         }
     }
-
-
 }

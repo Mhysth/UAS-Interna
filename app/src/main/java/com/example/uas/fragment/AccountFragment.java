@@ -40,16 +40,12 @@ public class AccountFragment extends Fragment {
 
     @BindView(R.id.std_name)
     TextView name;
-
     @BindView(R.id.std_nim)
     TextView nim;
-
     @BindView(R.id.std_email)
     TextView email;
-
     @BindView(R.id.std_image)
     ImageView image;
-
     @BindView(R.id.logout_btn)
     Button fabLogout;
 
@@ -58,40 +54,29 @@ public class AccountFragment extends Fragment {
     //private EventAdapter adapter;
     private SharedPreferenceHelper helper;
 
-
     public AccountFragment() {
         // Required empty public constructor
     }
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_account, container, false);
-
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         //showLoading(true);
-
-
         //TODO: Place viewModel implementation here
         helper = SharedPreferenceHelper.getInstance(requireActivity());
         //viewModel = ViewModelProviders.of(requireActivity()).get(AccountViewModel.class);
         viewModel = ViewModelProviders.of(requireActivity()).get(EventViewModel.class);
         viewModel.init(helper.getAccessToken());
         //viewModel.getEvents().observe(requireActivity(), observeViewModel);
-
         //rvEvent.setLayoutManager(new LinearLayoutManager(getActivity()));
         // adapter = new EventAdapter(getActivity());
     }
-
     @OnClick(R.id.logout_btn)
     public void logout(View view) {
         if (view.getId() == R.id.logout_btn) {

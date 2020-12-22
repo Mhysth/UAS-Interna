@@ -8,30 +8,29 @@
     tools:context=".Login">
 
     <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="366dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="272dp"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/edtPassword"
-        android:layout_width="395dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="366dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="92dp"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:password="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail"
-        app:passwordToggleEnabled="true" />
-
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="395dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="288dp"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:passwordToggleEnabled="false" />
 
     <TextView
         android:id="@+id/textView2"
@@ -53,7 +52,8 @@
         android:layout_width="224dp"
         android:layout_height="45dp"
         android:layout_marginBottom="88dp"
-        android:background="@drawable/radius"
+        android:background="@drawable/selector_disabled"
+        android:enabled="false"
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,10 +66,10 @@
         android:id="@+id/check_password"
         android:layout_width="162dp"
         android:layout_height="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/show_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
