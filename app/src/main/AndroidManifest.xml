@@ -13,12 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UAS">
 
-        <activity android:name=".adapter.DetailReportAdapter"></activity>
         <activity android:name=".adapter.ReportAdapter" />
-        <activity android:name=".adapter.TimelineAdapter" />
-        <activity android:name=".fragment.Report" />
-        <activity android:name=".fragment.Timeline" />
-        <activity android:name=".fragment.Account" />
         <activity android:name=".Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
