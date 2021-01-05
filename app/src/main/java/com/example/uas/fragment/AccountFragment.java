@@ -53,7 +53,6 @@ public class AccountFragment extends Fragment {
     private EventViewModel viewModel;
     //private EventAdapter adapter;
     private SharedPreferenceHelper helper;
-
     public AccountFragment() {
         // Required empty public constructor
     }
