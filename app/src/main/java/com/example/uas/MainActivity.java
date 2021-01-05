@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.uas.fragment.AccountFragment;
-import com.example.uas.fragment.ReportFragment;
 import com.example.uas.fragment.TimelineFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new AccountFragment();
                             break;
                         case R.id.nav_r:
-                            selectedFragment = new ReportFragment();
+                            selectedFragment = new NotificationFragment();
                             break;
 
                     }

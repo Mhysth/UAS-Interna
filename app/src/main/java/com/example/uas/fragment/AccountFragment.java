@@ -76,6 +76,7 @@ public class AccountFragment extends Fragment {
         //viewModel.getEvents().observe(requireActivity(), observeViewModel);
         //rvEvent.setLayoutManager(new LinearLayoutManager(getActivity()));
         // adapter = new EventAdapter(getActivity());
+
     }
     @OnClick(R.id.logout_btn)
     public void logout(View view) {
@@ -91,4 +92,5 @@ public class AccountFragment extends Fragment {
             });
         }
     }
+
 }

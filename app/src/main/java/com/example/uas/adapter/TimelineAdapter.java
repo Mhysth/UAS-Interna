@@ -1,6 +1,8 @@
 package com.example.uas.adapter;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.bumptech.glide.Glide;
 import com.example.uas.R;
+import com.example.uas.fragment.TimelineFragment;
 import com.example.uas.model.Timeline;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +38,14 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.CardVi
     @Override
     public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
         Timeline timeline = getListTimeline().get(position);
-        Glide.with(context).load(timeline.)
+        holder.date.setText(timeline.getDate());
+        holder.time.setText(timeline.getTime());
+        holder.title.setText(timeline.getTitle());
+        holder.desc.setText(timeline.getDesc());
+        holder.itemView.setOnClickListener(v -> {
+            NavDirections action = TimelineFragmentDirections.actionDetailFragment(null, timeline);
+            Navigation.findNavController(v).navigate(action);
+        });
     }
     @NonNull
     @Override
@@ -44,21 +53,21 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.CardVi
         return getListTimeline().size();
     }
     class CardViewViewHolder extends RecyclerView.ViewHolder {
-        ImageView img;
-        TextView day;
         TextView time;
         TextView date;
+        TextView title;
+        TextView desc;
         ImageView idtctr;
         TextView tdtctr;
 
         CardViewViewHolder(View itemView) {
             super(itemView);
-            img =itemView.findViewById(R.id.std_image_day);
-            day =itemView.findViewById(R.id.std_day);
-            time =itemView.findViewById(R.id.std_time);
-            date =itemView.findViewById(R.id.std_date);
-            idtctr =itemView.findViewById(R.id.img_detector);
-            tdtctr =itemView.findViewById(R.id.text_detector);
+            time = itemView.findViewById(R.id.std_time);
+            date = itemView.findViewById(R.id.std_date);
+            title = itemView.findViewById(R.id.std_title);
+            desc = itemView.findViewById(R.id.std_desc);
+            idtctr = itemView.findViewById(R.id.img_detector);
+            tdtctr = itemView.findViewById(R.id.text_detector);
         }
     }
 }
