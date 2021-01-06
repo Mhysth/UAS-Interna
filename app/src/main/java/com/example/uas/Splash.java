@@ -43,7 +43,7 @@ public class Splash extends AppCompatActivity {
             }, 2500);
         }
     }
-
+   //buat commit aja ini dibawah nanti di apus
    /* @Override
     protected void onStart() {
         super.onStart();
