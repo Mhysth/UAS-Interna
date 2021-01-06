@@ -43,4 +43,32 @@ public class Splash extends AppCompatActivity {
             }, 2500);
         }
     }
+
+   /* @Override
+    protected void onStart() {
+        super.onStart();
+        if (helper.getAccessToken().isEmpty()) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent onBoard = new Intent(Splash.this, Login.class);
+                    onBoard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(onBoard);
+                    finish();
+                }
+            }, 2500);
+        } else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent onBoard = new Intent(Splash.this, MainActivity.class);
+                    onBoard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(onBoard);
+                    finish();
+                }
+            }, 2500);
+        }
+    }*/
+
+
 }

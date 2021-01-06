@@ -42,10 +42,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.CardVi
         holder.time.setText(timeline.getTime());
         holder.title.setText(timeline.getTitle());
         holder.desc.setText(timeline.getDesc());
-        holder.itemView.setOnClickListener(v -> {
+       /* holder.itemView.setOnClickListener(v -> {
             NavDirections action = TimelineFragmentDirections.actionDetailFragment(null, timeline);
             Navigation.findNavController(v).navigate(action);
-        });
+        });*/
     }
     @NonNull
     @Override

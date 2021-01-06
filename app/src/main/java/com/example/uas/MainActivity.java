@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new AccountFragment();
                             break;
                         case R.id.nav_r:
-                            selectedFragment = new NotificationFragment();
+                           // selectedFragment = new NotificationFragment();
                             break;
 
                     }
