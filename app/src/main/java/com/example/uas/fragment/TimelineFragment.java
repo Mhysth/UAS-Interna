@@ -11,12 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.uas.R;
 import com.example.uas.adapter.TimelineAdapter;
-import com.example.uas.model.Timeline;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

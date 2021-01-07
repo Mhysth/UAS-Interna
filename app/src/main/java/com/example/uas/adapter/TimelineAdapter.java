@@ -1,8 +1,6 @@
 package com.example.uas.adapter;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.uas.R;
-import com.example.uas.fragment.TimelineFragment;
-import com.example.uas.model.Timeline;
+import com.example.uas.model.local.Timeline;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.uas.model.local.Event;
+import com.example.uas.model.local.Timeline;
 import com.example.uas.model.response.EventResponse;
 import com.example.uas.network.RetrofitService;
 import com.google.gson.Gson;
@@ -14,38 +14,39 @@ import com.google.gson.JsonObject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EventRepository {
+public class TimelineRepository {
 
-    private static EventRepository eventRepository;
+    private static TimelineRepository timelineRepository;
     private RetrofitService apiService;
-    private static final String TAG = "EventRepository";
+    private static final String TAG = "TimelineRepository";
 
-    private EventRepository(String token) {
-        Log.d(TAG, "EventRepository: " + token);
+    private TimelineRepository(String token) {
+        Log.d(TAG, "TimelineRepository: " + token);
         apiService = RetrofitService.getInstance(token);
     }
 
-    public static EventRepository getInstance(String token) {
-        if (eventRepository == null) {
-            eventRepository = new EventRepository(token);
+    public static TimelineRepository getInstance(String token) {
+        if (timelineRepository == null) {
+            timelineRepository = new TimelineRepository(token);
         }
-        return eventRepository;
+        return timelineRepository;
     }
 
     public synchronized void resetInstance() {
-        if (eventRepository != null) {
-            eventRepository = null;
+        if (timelineRepository != null) {
+            timelineRepository = null;
         }
     }
 
-    public MutableLiveData<List<Event>> getEvents() {
-        MutableLiveData<List<Event>> listEvent = new MutableLiveData<>();
+    public MutableLiveData<List<Timeline>> getEvents() {
+        MutableLiveData<List<Timeline>> listEvent = new MutableLiveData<>();
 
         apiService.getEvents().enqueue(new Callback<EventResponse>() {
             @Override

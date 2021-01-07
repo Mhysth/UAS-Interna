@@ -7,8 +7,8 @@
         android:title="@string/timeline" />
     <item
         android:id="@+id/nav_r"
-        android:icon="@drawable/ic_baseline_assignment_24"
-        android:title="@string/report" />
+        android:icon="@drawable/ic_baseline_access_alarm_24"
+        android:title="Reminder" />
     <item
         android:id="@+id/nav_a"
         android:icon="@drawable/ic_baseline_account_circle_24"

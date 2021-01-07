@@ -6,26 +6,26 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 
-import com.example.uas.model.local.Event;
-import com.example.uas.repository.EventRepository;
+import com.example.uas.model.local.Timeline;
+import com.example.uas.repository.TimelineRepository;
 
 import java.util.List;
 
-public class EventViewModel extends ViewModel {
+public class TimelineViewModel extends ViewModel {
 
-    private EventRepository repository;
-    private static final String TAG = "EventViewModel";
+    private TimelineRepository repository;
+    private static final String TAG = "TimelineViewModel";
 
-    public EventViewModel() {
+    public TimelineViewModel() {
 
     }
 
     public void init(String token) {
         Log.d(TAG, "init: " + token);
-        repository = EventRepository.getInstance(token);
+        repository = TimelineRepository.getInstance(token);
     }
 
-    public LiveData<List<Event>> getEvents() {
+    public LiveData<List<Timeline>> getEvents() {
         return repository.getEvents();
     }
 

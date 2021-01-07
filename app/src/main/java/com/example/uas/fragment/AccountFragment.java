@@ -7,29 +7,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.uas.Login;
-import com.example.uas.MainActivity;
 import com.example.uas.R;
 import com.example.uas.utils.SharedPreferenceHelper;
-import com.example.uas.viewModel.AccountViewModel;
-import com.example.uas.viewModel.EventViewModel;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.uas.viewModel.TimelineViewModel;
 
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,7 +41,7 @@ public class AccountFragment extends Fragment {
     Button fabLogout;
 
     //private AccountViewModel viewModel;
-    private EventViewModel viewModel;
+    private TimelineViewModel viewModel;
     //private EventAdapter adapter;
     private SharedPreferenceHelper helper;
     public AccountFragment() {
@@ -70,7 +61,7 @@ public class AccountFragment extends Fragment {
         //TODO: Place viewModel implementation here
         helper = SharedPreferenceHelper.getInstance(requireActivity());
         //viewModel = ViewModelProviders.of(requireActivity()).get(AccountViewModel.class);
-        viewModel = ViewModelProviders.of(requireActivity()).get(EventViewModel.class);
+        viewModel = ViewModelProviders.of(requireActivity()).get(TimelineViewModel.class);
         viewModel.init(helper.getAccessToken());
         //viewModel.getEvents().observe(requireActivity(), observeViewModel);
         //rvEvent.setLayoutManager(new LinearLayoutManager(getActivity()));

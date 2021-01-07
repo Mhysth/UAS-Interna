@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 
 public interface Endpoints {
 
-    @POST("api-login")
+    @POST("login")
     @FormUrlEncoded
     Call<TokenResponse> login (@Field("email") String email, @Field("password") String password);
 

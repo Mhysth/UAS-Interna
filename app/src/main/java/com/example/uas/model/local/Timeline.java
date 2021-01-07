@@ -1,4 +1,4 @@
-package com.example.uas.model;
+package com.example.uas.model.local;
 
 import android.os.Parcel;
 import android.os.Parcelable;
