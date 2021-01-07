@@ -22,7 +22,7 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.114"
+            app:layout_constraintVertical_bias="0.058"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -38,7 +38,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.398" />
+            app:layout_constraintVertical_bias="0.36" />
 
         <TextView
             android:id="@+id/std_nim"
@@ -116,7 +116,7 @@
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.736" />
+            app:layout_constraintVertical_bias="0.728" />
 
         <Button
             android:id="@+id/logout_btn"

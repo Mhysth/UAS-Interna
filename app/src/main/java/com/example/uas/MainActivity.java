@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.uas.fragment.AccountFragment;
+import com.example.uas.fragment.NotificationFragment;
 import com.example.uas.fragment.TimelineFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

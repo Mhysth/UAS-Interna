@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.uas.R;
 
-
 public class NotificationFragment extends Fragment {
 
     public NotificationFragment() {
