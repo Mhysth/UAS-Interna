@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_t:
                             selectedFragment = new TimelineFragment();
                             break;
-                        case R.id.nav_a:
-                            selectedFragment = new AccountFragment();
-                            break;
                         case R.id.nav_r:
                             selectedFragment = new NotificationFragment();
+                            break;
+                        case R.id.nav_a:
+                            selectedFragment = new AccountFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_main,
