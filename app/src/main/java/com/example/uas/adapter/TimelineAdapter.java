@@ -24,6 +24,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.CardVi
     }
     public void setListTimeline(List<Timeline> listTimeline) {
         this.listTimeline = listTimeline;
+        notifyDataSetChanged();
     }
     public TimelineAdapter(Context context) {
         this.listTimeline = new ArrayList<Timeline>();

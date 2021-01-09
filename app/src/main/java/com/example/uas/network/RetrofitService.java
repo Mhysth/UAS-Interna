@@ -2,10 +2,14 @@ package com.example.uas.network;
 
 import android.util.Log;
 
+import com.example.uas.model.local.Timeline;
 import com.example.uas.model.response.EventResponse;
+import com.example.uas.model.response.TimelineResponse;
 import com.example.uas.model.response.TokenResponse;
 import com.example.uas.utils.Constants;
 import com.google.gson.JsonObject;
+
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -60,8 +64,20 @@ public class RetrofitService {
         return endpoints.login(email, password);
     }
 
-    public Call<EventResponse> getEvents() {
+   /* public Call<EventResponse> getEvents() {
+
         return endpoints.getEvents();
+    }*/
+
+   /* public Call<TimelineResponse> getTimeline() {
+
+        return endpoints.getTimeline();
+    }*/
+
+    //test
+    public Call<List<Timeline>> getTimeline() {
+
+        return endpoints.getTimeline();
     }
 
     public Call<JsonObject> logout() {

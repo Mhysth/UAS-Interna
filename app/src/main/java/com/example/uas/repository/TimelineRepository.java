@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.uas.model.local.Timeline;
 import com.example.uas.model.response.EventResponse;
+import com.example.uas.model.response.TimelineResponse;
 import com.example.uas.network.RetrofitService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -45,28 +46,53 @@ public class TimelineRepository {
         }
     }
 
-    public MutableLiveData<List<Timeline>> getEvents() {
-        MutableLiveData<List<Timeline>> listEvent = new MutableLiveData<>();
+    /*public MutableLiveData<List<Timeline>> getEvents() {
+        MutableLiveData<List<Timeline>> listTimeline = new MutableLiveData<>();
 
-        apiService.getEvents().enqueue(new Callback<EventResponse>() {
+        apiService.getTimeline().enqueue(new Callback<TimelineResponse>() {
             @Override
-            public void onResponse(Call<EventResponse> call, Response<EventResponse> response) {
+            public void onResponse(Call<TimelineResponse> call, Response<TimelineResponse> response) {
                 Log.d(TAG, "onResponse: " + response.code());
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         Log.d(TAG, "onResponse: " + response.body().getResults().size());
-                        listEvent.postValue(response.body().getResults());
+                        listTimeline.postValue(response.body().getResults());
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<EventResponse> call, Throwable t) {
+            public void onFailure(Call<TimelineResponse> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
 
-        return listEvent;
+        return listTimeline;
+    }*/
+
+    //test
+    public MutableLiveData<List<Timeline>> getEvents() {
+        MutableLiveData<List<Timeline>> listTimeline = new MutableLiveData<>();
+
+        apiService.getTimeline().enqueue(new Callback<List<Timeline>>() {
+            @Override
+            public void onResponse(Call<List<Timeline>> call, Response<List<Timeline>> response) {
+                Log.d(TAG, "onResponse: " + response.code());
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.d(TAG, "onResponse: " + response.body().size());
+                        listTimeline.postValue(response.body());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Timeline>> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+
+        return listTimeline;
     }
 
     public LiveData<String> logout() {
