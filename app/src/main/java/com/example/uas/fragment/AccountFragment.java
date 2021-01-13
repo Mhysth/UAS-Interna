@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
@@ -18,9 +19,14 @@ import android.widget.Toast;
 
 import com.example.uas.Login;
 import com.example.uas.R;
+import com.example.uas.model.local.Timeline;
+import com.example.uas.model.local.User;
 import com.example.uas.utils.SharedPreferenceHelper;
+import com.example.uas.viewModel.AccountViewModel;
 import com.example.uas.viewModel.TimelineViewModel;
 
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +39,14 @@ public class AccountFragment extends Fragment {
     TextView name;
     @BindView(R.id.std_nim)
     TextView nim;
+    @BindView(R.id.std_gender)
+    TextView gender;
+    @BindView(R.id.std_line)
+    TextView line;
+    @BindView(R.id.std_phone)
+    TextView phone;
+    @BindView(R.id.std_batch)
+    TextView batch;
     @BindView(R.id.std_email)
     TextView email;
     @BindView(R.id.std_image)
@@ -42,6 +56,8 @@ public class AccountFragment extends Fragment {
 
     //private AccountViewModel viewModel;
     private TimelineViewModel viewModel;
+    private User user;
+    private AccountViewModel userViewModel;
     //private EventAdapter adapter;
     private SharedPreferenceHelper helper;
     public AccountFragment() {
@@ -63,11 +79,33 @@ public class AccountFragment extends Fragment {
         //viewModel = ViewModelProviders.of(requireActivity()).get(AccountViewModel.class);
         viewModel = ViewModelProviders.of(requireActivity()).get(TimelineViewModel.class);
         viewModel.init(helper.getAccessToken());
+
+        userViewModel = ViewModelProviders.of(requireActivity()).get(AccountViewModel.class);
+        userViewModel.init(helper.getAccessToken());
+        userViewModel.getUser().observe(requireActivity(), observeViewModel);
         //viewModel.getEvents().observe(requireActivity(), observeViewModel);
         //rvEvent.setLayoutManager(new LinearLayoutManager(getActivity()));
         // adapter = new EventAdapter(getActivity());
 
     }
+
+    private Observer<List<User>> observeViewModel = new Observer<List<User>>() {
+        @Override
+        public void onChanged(List<User> listUser) {
+            if (listUser!= null) {
+               User user = listUser.get(0);
+                name.setText(user.getName());
+                nim.setText(user.getNim());
+                gender.setText(user.getGender());
+                line.setText(user.getLine_account());
+                phone.setText(user.getPhone());
+                batch.setText(user.getPeriod_id());
+                //batch.setText(user.getBatch());
+                email.setText(user.getEmail());
+            }
+        }
+    };
+
     @OnClick(R.id.logout_btn)
     public void logout(View view) {
         if (view.getId() == R.id.logout_btn) {

@@ -3,9 +3,11 @@ package com.example.uas.network;
 import android.util.Log;
 
 import com.example.uas.model.local.Timeline;
+import com.example.uas.model.local.User;
 import com.example.uas.model.response.EventResponse;
 import com.example.uas.model.response.TimelineResponse;
 import com.example.uas.model.response.TokenResponse;
+import com.example.uas.model.response.UserResponse;
 import com.example.uas.utils.Constants;
 import com.google.gson.JsonObject;
 
@@ -79,6 +81,18 @@ public class RetrofitService {
 
         return endpoints.getTimeline();
     }
+
+    public Call<List<User>> getUser() {
+
+        return endpoints.getUser();
+    }
+
+    //test account
+
+    /*public Call <User> getUser() {
+
+        return endpoints.getUser();
+    }*/
 
     public Call<JsonObject> logout() {
         return endpoints.logout();
