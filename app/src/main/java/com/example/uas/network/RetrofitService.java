@@ -7,6 +7,7 @@ import com.example.uas.model.local.User;
 import com.example.uas.model.response.EventResponse;
 import com.example.uas.model.response.TimelineResponse;
 import com.example.uas.model.response.TokenResponse;
+import com.example.uas.model.response.UserResponse;
 import com.example.uas.utils.Constants;
 import com.google.gson.JsonObject;
 

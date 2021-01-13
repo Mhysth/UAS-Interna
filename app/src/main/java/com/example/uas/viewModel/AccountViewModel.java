@@ -13,7 +13,7 @@ import java.util.List;
 
 public class AccountViewModel extends ViewModel {
 
-   /*private AuthRepository repository;
+    /*private AuthRepository repository;
     private static final String TAG = "AccountViewModel";
 
     public AccountViewModel() {
@@ -51,7 +51,6 @@ public class AccountViewModel extends ViewModel {
         Log.d(TAG, "onCleared: ");
         repository.resetInstance();
     }
-
 
 
 }

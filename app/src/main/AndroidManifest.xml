@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UAS"
         android:usesCleartextTraffic="true">
+        <activity android:name=".adapter.ReportAdapter" />
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

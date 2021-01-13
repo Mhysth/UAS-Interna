@@ -6,6 +6,7 @@ public class User {
 
     @SerializedName("profile_photo_path")
     private String photo;
+
     @SerializedName("id")
     private String id_user;
     @SerializedName("study_program_id")
@@ -33,6 +34,7 @@ public class User {
 
     }
 
+
     public User(String id_user, String study_program, String period_id, String name, String email, String nim, String gender, String line_account, String phone, String batch, String description, String photo) {
         this.id_user = id_user;
         this.study_program = study_program;
@@ -46,6 +48,7 @@ public class User {
         this.batch = batch;
         this.description = description;
         this.photo = photo;
+
     }
 
     public String getId_user() {
@@ -80,6 +83,7 @@ public class User {
         this.name = name;
     }
 
+
     public String getPhoto() {
         return photo;
     }
@@ -87,6 +91,7 @@ public class User {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
 
     public String getEmail() {
         return email;

@@ -20,6 +20,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.uas.Login;
 import com.example.uas.R;
+
+import com.example.uas.model.local.Timeline;
+
 import com.example.uas.model.local.User;
 import com.example.uas.utils.SharedPreferenceHelper;
 import com.example.uas.viewModel.AccountViewModel;
@@ -95,7 +98,8 @@ public class AccountFragment extends Fragment {
         @Override
         public void onChanged(List<User> listUser) {
             if (listUser!= null) {
-                User user = listUser.get(0);
+
+               User user = listUser.get(0);
                 name.setText(user.getName());
                 nim.setText(user.getNim());
                 gender.setText(user.getGender());

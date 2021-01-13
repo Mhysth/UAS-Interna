@@ -1,5 +1,6 @@
 package com.example.uas.model.response;
 
+
 import com.example.uas.model.local.User;
 import com.google.gson.annotations.SerializedName;
 
