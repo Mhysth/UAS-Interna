@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
                     viewModel.login(email, password).observe(this, tokenResponse -> {
                         if (tokenResponse != null) {
                             helper.saveAccessToken(tokenResponse.getAuthorization());
-                            Intent onBoard = new Intent(Login.this, MainActivity.class);
+                            Intent onBoard = new Intent(Login.this, MainActivity2.class);
                             onBoard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
                             startActivity(onBoard);
