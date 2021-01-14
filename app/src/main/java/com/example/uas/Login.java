@@ -2,6 +2,7 @@ package com.example.uas;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -50,12 +51,14 @@ public class Login extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mail = editEmail.getText().toString().trim();
                 pass = editPassword.getText().toString().trim();
                 btnLogin.setEnabled(!mail.isEmpty() && !pass.isEmpty());
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -64,7 +67,7 @@ public class Login extends AppCompatActivity {
         editPassword.addTextChangedListener(TW);
 
         ButterKnife.bind(this);
-       // Objects.requireNonNull((this).getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
+        // Objects.requireNonNull((this).getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
         //TODO: Place viewModel implementation here
         viewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         helper = SharedPreferenceHelper.getInstance(this);
@@ -81,6 +84,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
     @OnClick({R.id.login_btn})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -96,14 +100,16 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
                             startActivity(onBoard);
                             finish();
+                        } else {
+                            Toast.makeText(Login.this, "Authentication Failed!", Toast.LENGTH_SHORT).show();
                         }
                     });
+                    break;
+                    //case R.id.tvReg:
+                    //    NavDirections actions = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
+                    //   Navigation.findNavController(view).navigate(actions);
+                    //   break;
                 }
-                break;
-            //case R.id.tvReg:
-            //    NavDirections actions = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
-            //   Navigation.findNavController(view).navigate(actions);
-            //   break;
         }
     }
 }

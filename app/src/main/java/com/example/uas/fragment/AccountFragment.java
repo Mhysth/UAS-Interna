@@ -127,5 +127,4 @@ public class AccountFragment extends Fragment {
             });
         }
     }
-
 }

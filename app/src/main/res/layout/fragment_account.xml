@@ -82,12 +82,12 @@
             android:id="@+id/std_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="144dp"
             android:text="Phone"
             android:textAlignment="center"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/std_name" />
 
@@ -95,7 +95,7 @@
             android:id="@+id/std_batch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="212dp"
+            android:layout_marginTop="192dp"
             android:text="2020/2021"
             android:textAlignment="center"
             android:textSize="20dp"
@@ -104,22 +104,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/std_name" />
 
+
+        app:layout_constraintHorizontal_bias="0.507"
+
         <TextView
             android:id="@+id/std_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="36dp"
             android:text="@string/email"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="25dp"
+            android:textSize="23dp"
             app:layout_constraintBottom_toTopOf="@+id/logout_btn"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
-
-
-            app:layout_constraintHorizontal_bias="0.507"
 
         <Button
             android:id="@+id/logout_btn"
