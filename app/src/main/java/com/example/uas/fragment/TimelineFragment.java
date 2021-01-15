@@ -36,8 +36,8 @@ public class TimelineFragment extends Fragment {
 
     @BindView(R.id.rv_timeline)
     RecyclerView recyclerView;
-   /* @BindView(R.id.company_name)
-    TextView company_name;*/
+   @BindView(R.id.company_name)
+    TextView company_name;
 
     private TimelineAdapter adapter;
     //test
@@ -69,7 +69,7 @@ public class TimelineFragment extends Fragment {
 
         viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
         viewCompany.init(helper.getAccessToken());
-       //viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
+       viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
 
         adapter = new TimelineAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -87,7 +87,7 @@ public class TimelineFragment extends Fragment {
         }
     };
 
-   /* private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
+    private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
         @Override
         public void onChanged(List<Company> listCompany) {
             if (listCompany!= null) {
@@ -95,7 +95,7 @@ public class TimelineFragment extends Fragment {
                 company_name.setText(company.getName());
             }
         }
-    };*/
+    };
 
     private void showLoading(Boolean state) {
         if (state) {

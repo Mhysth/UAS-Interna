@@ -55,15 +55,15 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.CardVi
     }
     class CardViewViewHolder extends RecyclerView.ViewHolder {
         TextView time, date, title, desc, tdtctr;
-        ImageView idtctr;
+        //ImageView idtctr;
         CardViewViewHolder(View itemView) {
             super(itemView);
             time = itemView.findViewById(R.id.std_time);
             date = itemView.findViewById(R.id.std_date);
             title = itemView.findViewById(R.id.std_title);
             desc = itemView.findViewById(R.id.std_desc);
-            idtctr = itemView.findViewById(R.id.img_detector);
-            tdtctr = itemView.findViewById(R.id.text_detector);
+            //idtctr = itemView.findViewById(R.id.img_detector);
+            //tdtctr = itemView.findViewById(R.id.text_detector);
         }
     }
 }
