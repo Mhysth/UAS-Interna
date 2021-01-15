@@ -106,7 +106,8 @@ public class AccountFragment extends Fragment {
                 line.setText(user.getLine_account());
                 phone.setText(user.getPhone());
                 batch.setText(user.getPeriod_id());
-                Glide.with(getActivity()).load(BASE_IMAGE_URL+ user.getPhoto()).into(image);
+                //Glide.with(getActivity()).load(BASE_IMAGE_URL+ user.getPhoto()).into(image);
+                Glide.with(getActivity()).load(user.getPhoto()).into(image);
                 //batch.setText(user.getBatch());
                 email.setText(user.getEmail());
             }

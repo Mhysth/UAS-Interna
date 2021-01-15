@@ -37,6 +37,7 @@ public class AccountViewModel extends ViewModel {
     }
 
     public LiveData<List<User>> getUser() {
+
         return repository.getUser();
     }
 
@@ -51,6 +52,7 @@ public class AccountViewModel extends ViewModel {
         Log.d(TAG, "onCleared: ");
         repository.resetInstance();
     }
+
 
 
 }

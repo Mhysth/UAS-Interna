@@ -11,7 +11,7 @@ public class User {
     private String id_user;
     @SerializedName("study_program_id")
     private String study_program;
-    @SerializedName("period_id")
+    @SerializedName("period")
     private String period_id;
     @SerializedName("name")
     private String name;

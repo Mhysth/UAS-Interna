@@ -1,21 +1,17 @@
 package com.example.uas.model.response;
 
-
+import com.example.uas.model.local.Company;
 import com.example.uas.model.local.User;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class UserResponse {
-    @SerializedName("data")
-   private List<User> results;
+public class CompanyResponse {
 
-    public List<User> getResults() {
+    @SerializedName("data")
+    private List<Company> results;
+
+    public List<Company> getResults() {
         return results;
     }
-   /*private User results;
-
-    public User getResults() {
-        return results;
-    }*/
 }

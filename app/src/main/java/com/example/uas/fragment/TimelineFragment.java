@@ -13,11 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.uas.R;
 import com.example.uas.adapter.TimelineAdapter;
+import com.example.uas.model.local.Company;
 import com.example.uas.model.local.Timeline;
+import com.example.uas.model.local.User;
 import com.example.uas.utils.SharedPreferenceHelper;
+
+import com.example.uas.viewModel.CompanyViewModel;
 import com.example.uas.viewModel.TimelineViewModel;
 
 import java.util.List;
@@ -30,10 +36,13 @@ public class TimelineFragment extends Fragment {
 
     @BindView(R.id.rv_timeline)
     RecyclerView recyclerView;
+   /* @BindView(R.id.company_name)
+    TextView company_name;*/
 
     private TimelineAdapter adapter;
     //test
     private TimelineViewModel viewModel;
+    private CompanyViewModel viewCompany;
     private SharedPreferenceHelper helper;
 
     public TimelineFragment() {
@@ -58,6 +67,10 @@ public class TimelineFragment extends Fragment {
         viewModel.init(helper.getAccessToken());
         viewModel.getEvents().observe(requireActivity(), observeViewModel);
 
+        viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
+        viewCompany.init(helper.getAccessToken());
+       //viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
+
         adapter = new TimelineAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
@@ -73,6 +86,16 @@ public class TimelineFragment extends Fragment {
             }
         }
     };
+
+   /* private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
+        @Override
+        public void onChanged(List<Company> listCompany) {
+            if (listCompany!= null) {
+                Company company = listCompany.get(0);
+                company_name.setText(company.getName());
+            }
+        }
+    };*/
 
     private void showLoading(Boolean state) {
         if (state) {

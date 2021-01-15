@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.uas.model.local.User;
+import com.example.uas.model.response.UserResponse;
 import com.example.uas.network.RetrofitService;
 
 import java.util.List;
@@ -62,7 +63,7 @@ public class UserRepository {
     }*/
 
     //test
-    public MutableLiveData<List<User>> getUser() {
+   /* public MutableLiveData<List<User>> getUser() {
         MutableLiveData<List<User>> listUser = new MutableLiveData<>();
 
         apiService.getUser().enqueue(new Callback<List<User>>() {
@@ -84,7 +85,7 @@ public class UserRepository {
         });
 
         return listUser;
-    }
+    }*/
 
     //test account
    /*public MutableLiveData<List<User>> getUser() {
@@ -111,6 +112,30 @@ public class UserRepository {
         return listUser;
     }*/
 
+    //test data
+    public MutableLiveData<List<User>> getUser() {
+        MutableLiveData<List<User>> listUser = new MutableLiveData<>();
+
+        apiService.getUser().enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                Log.d(TAG, "onResponse: " + response.code());
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.d(TAG, "onResponse: " + response.body().getResults().size());
+                        listUser.postValue(response.body().getResults());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                Log.d(TAG, "onFailure: " + t.getMessage());
+            }
+        });
+
+        return listUser;
+    }
 
 
 
