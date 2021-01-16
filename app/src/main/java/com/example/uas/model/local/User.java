@@ -6,9 +6,10 @@ public class User {
 
     @SerializedName("profile_photo_path")
     private String photo;
+
     @SerializedName("id")
     private String id_user;
-    @SerializedName("study_program")
+    @SerializedName("study_program_id")
     private String study_program;
     @SerializedName("period")
     private String period_id;
@@ -30,6 +31,7 @@ public class User {
     private String description;
 
     public User(){
+
     }
 
 

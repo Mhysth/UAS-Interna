@@ -1,110 +1,79 @@
 package com.example.uas.model.local;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Company implements Parcelable {
-
+public class Company {
     @SerializedName("id")
-    private String id_sv;
-
+    private String id_company;
     @SerializedName("name")
-    private String id_sp;
-
+    private String name;
     @SerializedName("address")
-    private String add_sv;
-
+    private String address;
     @SerializedName("supervisor")
-    private String sv;
-
+    private String supervisior;
     @SerializedName("email")
-    private String email_sv;
-
+    private String email;
     @SerializedName("phone")
-    private String phone_sv;
-
+    private String phone;
     @SerializedName("npwp")
     private String npwp;
 
-    public Company(String id_sv, String id_sp, String add_sv, String sv, String email_sv, String phone_sv, String npwp) {
-        this.id_sv = id_sv;
-        this.id_sp = id_sp;
-        this.add_sv = add_sv;
-        this.sv = sv;
-        this.email_sv = email_sv;
-        this.phone_sv = phone_sv;
+    public Company(String id_company, String name, String address, String supervisior, String email, String phone, String npwp) {
+        this.id_company = id_company;
+        this.name = name;
+        this.address = address;
+        this.supervisior = supervisior;
+        this.email = email;
+        this.phone = phone;
         this.npwp = npwp;
     }
 
-    protected Company(Parcel in) {
-        id_sv = in.readString();
-        id_sp = in.readString();
-        add_sv = in.readString();
-        sv = in.readString();
-        email_sv = in.readString();
-        phone_sv = in.readString();
-        npwp = in.readString();
+    public String getId_company() {
+        return id_company;
     }
 
-    public static final Creator<Company> CREATOR = new Creator<Company>() {
-        @Override
-        public Company createFromParcel(Parcel in) {
-            return new Company(in);
-        }
-
-        @Override
-        public Company[] newArray(int size) {
-            return new Company[size];
-        }
-    };
-
-    public String getId_sv() {
-        return id_sv;
+    public void setId_company(String id_company) {
+        this.id_company = id_company;
     }
 
-    public void setId_sv(String id_sv) {
-        this.id_sv = id_sv;
+    public String getName() {
+        return name;
     }
 
-    public String getId_sp() {
-        return id_sp;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setId_sp(String id_sp) {
-        this.id_sp = id_sp;
+    public String getAddress() {
+        return address;
     }
 
-    public String getAdd_sv() {
-        return add_sv;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public void setAdd_sv(String add_sv) {
-        this.add_sv = add_sv;
+    public String getSupervisior() {
+        return supervisior;
     }
 
-    public String getSv() {
-        return sv;
+    public void setSupervisior(String supervisior) {
+        this.supervisior = supervisior;
     }
 
-    public void setSv(String sv) {
-        this.sv = sv;
+    public String getEmail() {
+        return email;
     }
 
-    public String getEmail_sv() {
-        return email_sv;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setEmail_sv(String email_sv) {
-        this.email_sv = email_sv;
+    public String getPhone() {
+        return phone;
     }
 
-    public String getPhone_sv() {
-        return phone_sv;
-    }
-
-    public void setPhone_sv(String phone_sv) {
-        this.phone_sv = phone_sv;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getNpwp() {
@@ -113,21 +82,5 @@ public class Company implements Parcelable {
 
     public void setNpwp(String npwp) {
         this.npwp = npwp;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id_sv);
-        dest.writeString(id_sp);
-        dest.writeString(add_sv);
-        dest.writeString(sv);
-        dest.writeString(email_sv);
-        dest.writeString(phone_sv);
-        dest.writeString(npwp);
     }
 }
