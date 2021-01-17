@@ -1,14 +1,22 @@
 package com.example.uas;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -36,6 +44,8 @@ public class Login extends AppCompatActivity {
 
     private LoginViewModel viewModel;
     private SharedPreferenceHelper helper;
+    AlphaAnimation klik = new AlphaAnimation(1F, 0.6F);
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +91,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-    @OnClick({R.id.login_btn})
+    /*@OnClick({R.id.login_btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_btn:
@@ -105,5 +115,55 @@ public class Login extends AppCompatActivity {
             //   Navigation.findNavController(view).navigate(actions);
             //   break;
         }
+    }*/
+
+    @OnClick({R.id.login_btn})
+    public void onClick(View view) {
+        view.startAnimation(klik);
+        new AlertDialog.Builder(Login.this)
+                .setTitle("Konfirmasi")
+                .setMessage("Are you sure to want to login ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(final DialogInterface dialogInterface, int i) {
+                        // dialog.show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //dialog.cancel();
+                                if (!editEmail.getText().toString().isEmpty() && !editPassword.getText().toString().isEmpty()) {
+                                    String email = editEmail.getText().toString().trim();
+                                    String password = editPassword.getText().toString().trim();
+                                    viewModel.login(email, password).observe(Login.this, tokenResponse -> {
+                                        if (tokenResponse != null) {
+                                            helper.saveAccessToken(tokenResponse.getAuthorization());
+                                            Intent onBoard = new Intent(Login.this, MainActivity.class);
+                                            onBoard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                            Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
+                                            startActivity(onBoard);
+                                            finish();
+                                        }
+                                    });
+                                }
+                            }
+                        }, 2000);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .create()
+                .show();
+
+
+            //case R.id.tvReg:
+            //    NavDirections actions = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
+            //   Navigation.findNavController(view).navigate(actions);
+            //   break;
+
     }
 }

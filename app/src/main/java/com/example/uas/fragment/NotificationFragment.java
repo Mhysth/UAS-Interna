@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,19 +35,24 @@ public class NotificationFragment extends DialogFragment implements TimePickerDi
             public void onClick(View v) {
                 DialogFragment timePicker = new NotificationFragmentHelper();
                 timePicker.show(getFragmentManager(), "time picker");
+                Log.d("on click", "true");
+
             }
         });
         Button buttonCancelAlarm = view.findViewById(R.id.button_cancel);
         buttonCancelAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("on canceled", "true");
                 cancelAlarm();
             }
+
         });
         return view;
     }
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Log.d("on finish", "true");
         Calendar c = Calendar.getInstance();
         c.set(Calendar.HOUR_OF_DAY, hourOfDay);
         c.set(Calendar.MINUTE, minute);

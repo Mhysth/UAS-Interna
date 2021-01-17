@@ -1,17 +1,22 @@
 package com.example.uas.fragment;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -65,6 +70,10 @@ public class AccountFragment extends Fragment {
     private AccountViewModel userViewModel;
     //private EventAdapter adapter;
     private SharedPreferenceHelper helper;
+
+    AlphaAnimation klik = new AlphaAnimation(1F, 0.6F);
+    Dialog dialog;
+
     public AccountFragment() {
         // Required empty public constructor
     }
@@ -114,7 +123,7 @@ public class AccountFragment extends Fragment {
         }
     };
 
-    @OnClick(R.id.logout_btn)
+    /*@OnClick(R.id.logout_btn)
     public void logout(View view) {
         if (view.getId() == R.id.logout_btn) {
             viewModel.logout().observe(requireActivity(), message -> {
@@ -127,6 +136,47 @@ public class AccountFragment extends Fragment {
                 }
             });
         }
+    }*/
+
+    @OnClick(R.id.logout_btn)
+    public void logout(View view) {
+        view.startAnimation(klik);
+        new AlertDialog.Builder(getActivity())
+                .setTitle("Konfirmasi")
+                .setMessage("Are you sure to want to logout ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(final DialogInterface dialogInterface, int i) {
+                        // dialog.show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //dialog.cancel();
+                                if (view.getId() == R.id.logout_btn) {
+                                    viewModel.logout().observe(requireActivity(), message -> {
+                                        if (!message.isEmpty()) {
+                                            helper.clearPref();
+                                            Intent onBoard = new Intent(getActivity(), Login.class);
+                                            onBoard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                                            startActivity(onBoard);
+                                        }
+                                    });
+                                }
+                            }
+                        }, 2000);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .create()
+                .show();
+
     }
 
 }
