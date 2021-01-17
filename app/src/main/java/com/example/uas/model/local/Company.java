@@ -11,6 +11,8 @@ public class Company {
     private String address;
     @SerializedName("supervisor")
     private String supervisior;
+    @SerializedName("supervisor_phone")
+    private String supervisior_contact;
     @SerializedName("email")
     private String email;
     @SerializedName("phone")
@@ -18,11 +20,12 @@ public class Company {
     @SerializedName("npwp")
     private String npwp;
 
-    public Company(String id_company, String name, String address, String supervisior, String email, String phone, String npwp) {
+    public Company(String id_company, String name, String address, String supervisior, String supervisior_contact, String email, String phone, String npwp) {
         this.id_company = id_company;
         this.name = name;
         this.address = address;
         this.supervisior = supervisior;
+        this.supervisior_contact = supervisior_contact;
         this.email = email;
         this.phone = phone;
         this.npwp = npwp;
@@ -58,6 +61,14 @@ public class Company {
 
     public void setSupervisior(String supervisior) {
         this.supervisior = supervisior;
+    }
+
+    public String getSupervisior_contact() {
+        return supervisior_contact;
+    }
+
+    public void setSupervisior_contact(String supervisior_contact) {
+        this.supervisior_contact = supervisior_contact;
     }
 
     public String getEmail() {

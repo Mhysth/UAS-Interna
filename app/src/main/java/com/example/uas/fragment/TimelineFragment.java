@@ -38,6 +38,12 @@ public class TimelineFragment extends Fragment {
     RecyclerView recyclerView;
    @BindView(R.id.company_name)
     TextView company_name;
+    @BindView(R.id.company_email)
+    TextView company_email;
+    @BindView(R.id.company_phone)
+    TextView company_phone;
+    @BindView(R.id.company_supervisor_phone)
+    TextView supervisior_phone;
 
     private TimelineAdapter adapter;
     //test
@@ -93,6 +99,9 @@ public class TimelineFragment extends Fragment {
             if (listCompany!= null) {
                 Company company = listCompany.get(0);
                 company_name.setText(company.getName());
+                company_email.setText(company.getEmail());
+                company_phone.setText(company.getPhone());
+               // supervisior_phone.setText(company.getSupervisior_contact());
             }
         }
     };
