@@ -45,8 +45,8 @@ public class NotificationFragment extends Fragment {
                 timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        h.setText(String.format("", hourOfDay));
-                        h.setText(String.format("", minute));
+                        h.setText(String.format("%02d", hourOfDay));
+                        m.setText(String.format("%02d", minute));
                     }
                 }, current_h, current_m, false);
                 timePickerDialog.show();
