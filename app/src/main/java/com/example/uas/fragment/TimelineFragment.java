@@ -69,7 +69,7 @@ public class TimelineFragment extends Fragment {
         helper = SharedPreferenceHelper.getInstance(requireActivity());
         viewModel = ViewModelProviders.of(requireActivity()).get(TimelineViewModel.class);
         viewModel.init(helper.getAccessToken());
-        viewModel.getEvents().observe(requireActivity(), observeViewModel);
+        viewModel.getTimeline().observe(requireActivity(), observeViewModel);
 
         viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
         viewCompany.init(helper.getAccessToken());

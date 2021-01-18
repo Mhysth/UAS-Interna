@@ -6,8 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.uas.model.local.Timeline;
-import com.example.uas.model.response.EventResponse;
-import com.example.uas.model.response.TimelineResponse;
 import com.example.uas.network.RetrofitService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -71,7 +69,7 @@ public class TimelineRepository {
     }*/
 
     //test
-    public MutableLiveData<List<Timeline>> getEvents() {
+    public MutableLiveData<List<Timeline>> getTimeline() {
         MutableLiveData<List<Timeline>> listTimeline = new MutableLiveData<>();
 
         apiService.getTimeline().enqueue(new Callback<List<Timeline>>() {
