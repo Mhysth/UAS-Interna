@@ -58,12 +58,14 @@ public class Login extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mail = editEmail.getText().toString().trim();
                 pass = editPassword.getText().toString().trim();
                 btnLogin.setEnabled(!mail.isEmpty() && !pass.isEmpty());
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -89,7 +91,8 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-    /*@OnClick({R.id.login_btn})
+
+    @OnClick({R.id.login_btn})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_btn:
@@ -113,8 +116,8 @@ public class Login extends AppCompatActivity {
             //   Navigation.findNavController(view).navigate(actions);
             //   break;
         }
-    }*/
-    @OnClick({R.id.login_btn})
+    }
+    /*@OnClick({R.id.login_btn})
     public void onClick(View view) {
         view.startAnimation(klik);
         new AlertDialog.Builder(Login.this)
@@ -154,11 +157,9 @@ public class Login extends AppCompatActivity {
                     }
                 })
                 .create()
-                .show();
-        //case R.id.tvReg:
-        //    NavDirections actions = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
-        //   Navigation.findNavController(view).navigate(actions);
-        //   break;
-
-    }
+                .show();*/
+    //case R.id.tvReg:
+    //    NavDirections actions = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
+    //   Navigation.findNavController(view).navigate(actions);
+    //   break;
 }
