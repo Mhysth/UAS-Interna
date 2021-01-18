@@ -71,9 +71,9 @@ public class TimelineFragment extends Fragment {
         viewModel.init(helper.getAccessToken());
         viewModel.getTimeline().observe(requireActivity(), observeViewModel);
 
-        viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
-        viewCompany.init(helper.getAccessToken());
-        viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
+//        viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
+//        viewCompany.init(helper.getAccessToken());
+//        viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
 
         adapter = new TimelineAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -89,18 +89,18 @@ public class TimelineFragment extends Fragment {
             }
         }
     };
-    private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
-        @Override
-        public void onChanged(List<Company> listCompany) {
-            if (listCompany!= null) {
-                Company company = listCompany.get(0);
-                company_name.setText(company.getName());
-                company_email.setText(company.getEmail());
-                company_phone.setText(company.getPhone());
-                // supervisior_phone.setText(company.getSupervisior_contact());
-            }
-        }
-    };
+//    private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
+//        @Override
+//        public void onChanged(List<Company> listCompany) {
+//            if (listCompany!= null) {
+//                Company company = listCompany.get(0);
+//                company_name.setText(company.getName());
+//                company_email.setText(company.getEmail());
+//                company_phone.setText(company.getPhone());
+//                // supervisior_phone.setText(company.getSupervisior_contact());
+//            }
+//        }
+//    };
     private void showLoading(Boolean state) {
         if (state) {
             recyclerView.setVisibility(View.GONE);
