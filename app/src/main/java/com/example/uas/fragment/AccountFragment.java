@@ -40,7 +40,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.example.uas.utils.Constants.BASE_IMAGE_URL;
 
 
 public class AccountFragment extends Fragment {
