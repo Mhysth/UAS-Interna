@@ -15,7 +15,7 @@ public class Company {
     private String supervisior_contact;
     @SerializedName("email")
     private String email;
-    @SerializedName("phone")
+    @SerializedName("company_phone")
     private String phone;
     @SerializedName("npwp")
     private String npwp;
