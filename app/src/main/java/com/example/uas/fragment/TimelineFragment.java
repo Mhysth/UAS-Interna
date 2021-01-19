@@ -15,12 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.uas.R;
 import com.example.uas.adapter.TimelineAdapter;
 import com.example.uas.model.local.Company;
 import com.example.uas.model.local.Timeline;
-import com.example.uas.model.local.User;
 import com.example.uas.utils.SharedPreferenceHelper;
 
 import com.example.uas.viewModel.CompanyViewModel;
@@ -36,8 +34,14 @@ public class TimelineFragment extends Fragment {
 
     @BindView(R.id.rv_timeline)
     RecyclerView recyclerView;
-   /* @BindView(R.id.company_name)
-    TextView company_name;*/
+    @BindView(R.id.company_name)
+    TextView company_name;
+    @BindView(R.id.company_email)
+    TextView company_email;
+    @BindView(R.id.company_phone)
+    TextView company_phone;
+    @BindView(R.id.company_supervisor_phone)
+    TextView supervisior_phone;
 
     private TimelineAdapter adapter;
     //test
@@ -48,8 +52,6 @@ public class TimelineFragment extends Fragment {
     public TimelineFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,16 +67,16 @@ public class TimelineFragment extends Fragment {
         helper = SharedPreferenceHelper.getInstance(requireActivity());
         viewModel = ViewModelProviders.of(requireActivity()).get(TimelineViewModel.class);
         viewModel.init(helper.getAccessToken());
-        viewModel.getEvents().observe(requireActivity(), observeViewModel);
+        viewModel.getTimeline().observe(requireActivity(), observeViewModel);
+        adapter = new TimelineAdapter(getContext());
 
         viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
         viewCompany.init(helper.getAccessToken());
-       //viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
+        viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
 
-        adapter = new TimelineAdapter(getContext());
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
-
     private Observer<List<Timeline>> observeViewModel = new Observer<List<Timeline>>() {
         @Override
         public void onChanged(List<Timeline> listTimeline) {
@@ -86,17 +88,19 @@ public class TimelineFragment extends Fragment {
             }
         }
     };
-
-   /* private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
+    private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
         @Override
         public void onChanged(List<Company> listCompany) {
-            if (listCompany!= null) {
+            if (listCompany.size() > 0) {
                 Company company = listCompany.get(0);
                 company_name.setText(company.getName());
+                company_email.setText(company.getEmail());
+                company_phone.setText(company.getPhone());
+                supervisior_phone.setText(company.getSupervisior_contact());
             }
         }
-    };*/
-
+    };
+    // !! company adapter buang aja !!
     private void showLoading(Boolean state) {
         if (state) {
             recyclerView.setVisibility(View.GONE);

@@ -25,8 +25,8 @@ public class TimelineViewModel extends ViewModel {
         repository = TimelineRepository.getInstance(token);
     }
 
-    public LiveData<List<Timeline>> getEvents() {
-        return repository.getEvents();
+    public LiveData<List<Timeline>> getTimeline() {
+        return repository.getTimeline();
     }
 
     public LiveData<String> logout() {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/bilbo_swash_caps</item>
+        <item>@font/black_ops_one</item>
+        <item>@font/bungee_inline</item>
+        <item>@font/diplomata_sc</item>
+        <item>@font/emilys_candy</item>
+        <item>@font/rock_salt</item>
+    </array>
+</resources>
