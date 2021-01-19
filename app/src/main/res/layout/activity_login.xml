@@ -57,12 +57,12 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="415dp"
-        android:layout_height="340dp"
+        android:layout_width="1041dp"
+        android:layout_height="847dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_board" />
+        app:srcCompat="@drawable/bg" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -78,8 +78,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/rock_salt"
-        android:text="@string/login"
+        android:fontFamily="@font/roboto_black"
+        android:text="LOGIN"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="50dp"

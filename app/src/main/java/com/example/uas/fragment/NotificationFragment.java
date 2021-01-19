@@ -1,8 +1,6 @@
 package com.example.uas.fragment;
 
 import android.annotation.SuppressLint;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,18 +12,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
 
 import com.example.uas.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
 public class NotificationFragment extends Fragment {
 
-    AlarmManager alarmManager;
-    PendingIntent pendingIntent;
+    ArrayList<Integer> days = new ArrayList<>();
     TextView h, m;
     Button tm, rem;
     TimePickerDialog timePickerDialog;
@@ -46,6 +43,7 @@ public class NotificationFragment extends Fragment {
                 c = Calendar.getInstance();
                 current_h = c.get(Calendar.HOUR_OF_DAY);
                 current_m = c.get(Calendar.MINUTE);
+                c.set(Calendar.SECOND, 0);
                 timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
                     @SuppressLint("DefaultLocale")
                     @Override
@@ -67,6 +65,12 @@ public class NotificationFragment extends Fragment {
                     intent.putExtra(AlarmClock.EXTRA_HOUR, hr);
                     intent.putExtra(AlarmClock.EXTRA_MINUTES, mn);
                     intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Assignment Reminder");
+                    days.add(Calendar.MONDAY);
+                    days.add(Calendar.TUESDAY);
+                    days.add(Calendar.WEDNESDAY);
+                    days.add(Calendar.THURSDAY);
+                    days.add(Calendar.FRIDAY);
+                    intent.putExtra(AlarmClock.EXTRA_DAYS, days);
                     if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                         startActivity(intent);
                     } else {
