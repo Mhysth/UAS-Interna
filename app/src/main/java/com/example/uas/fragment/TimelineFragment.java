@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.uas.R;
+import com.example.uas.adapter.CompanyAdapter;
 import com.example.uas.adapter.TimelineAdapter;
 import com.example.uas.model.local.Company;
 import com.example.uas.model.local.Timeline;
@@ -46,6 +47,7 @@ public class TimelineFragment extends Fragment {
     TextView supervisior_phone;
 
     private TimelineAdapter adapter;
+    private CompanyAdapter adapter2;
     //test
     private TimelineViewModel viewModel;
     private CompanyViewModel viewCompany;
@@ -70,12 +72,13 @@ public class TimelineFragment extends Fragment {
         viewModel = ViewModelProviders.of(requireActivity()).get(TimelineViewModel.class);
         viewModel.init(helper.getAccessToken());
         viewModel.getTimeline().observe(requireActivity(), observeViewModel);
-
-//        viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
-//        viewCompany.init(helper.getAccessToken());
-//        viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
-
         adapter = new TimelineAdapter(getContext());
+
+        viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
+        viewCompany.init(helper.getAccessToken());
+        viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
+        adapter2 = new CompanyAdapter(getContext());
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
     private Observer<List<Timeline>> observeViewModel = new Observer<List<Timeline>>() {
@@ -89,18 +92,16 @@ public class TimelineFragment extends Fragment {
             }
         }
     };
-//    private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
-//        @Override
-//        public void onChanged(List<Company> listCompany) {
-//            if (listCompany!= null) {
-//                Company company = listCompany.get(0);
-//                company_name.setText(company.getName());
-//                company_email.setText(company.getEmail());
-//                company_phone.setText(company.getPhone());
-//                // supervisior_phone.setText(company.getSupervisior_contact());
-//            }
-//        }
-//    };
+    private Observer<List<Company>> observeViewModel2 = new Observer<List<Company>>() {
+        @Override
+        public void onChanged(List<Company> listCompany) {
+            if (listCompany!= null) {
+                adapter2.setListCompany(listCompany);
+                adapter2.notifyDataSetChanged();
+                showLoading(false);
+            }
+        }
+    };
     private void showLoading(Boolean state) {
         if (state) {
             recyclerView.setVisibility(View.GONE);
