@@ -15,7 +15,7 @@ import com.example.uas.model.local.Company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CardViewViewHolder> {
+/*public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CardViewViewHolder> {
     private Context context;
     private List<Company> listCompany;
 
@@ -63,4 +63,4 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CardView
             supervisior_contact = itemView.findViewById(R.id.company_supervisor_phone);
         }
     }
-}
+}*/

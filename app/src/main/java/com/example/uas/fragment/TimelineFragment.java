@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.uas.R;
-import com.example.uas.adapter.CompanyAdapter;
+//import com.example.uas.adapter.CompanyAdapter;
 import com.example.uas.adapter.TimelineAdapter;
 import com.example.uas.model.local.Company;
 import com.example.uas.model.local.Timeline;
@@ -47,7 +47,7 @@ public class TimelineFragment extends Fragment {
     TextView supervisior_phone;
 
     private TimelineAdapter adapter;
-    private CompanyAdapter adapter2;
+   // private CompanyAdapter adapter2;
     //test
     private TimelineViewModel viewModel;
     private CompanyViewModel viewCompany;
@@ -77,7 +77,7 @@ public class TimelineFragment extends Fragment {
         viewCompany =  ViewModelProviders.of(requireActivity()).get(CompanyViewModel.class);
         viewCompany.init(helper.getAccessToken());
         viewCompany.getCompany().observe(requireActivity(), observeViewModel2);
-        adapter2 = new CompanyAdapter(getContext());
+        //adapter2 = new CompanyAdapter(getContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
@@ -96,12 +96,17 @@ public class TimelineFragment extends Fragment {
         @Override
         public void onChanged(List<Company> listCompany) {
             if (listCompany!= null) {
-                adapter2.setListCompany(listCompany);
-                adapter2.notifyDataSetChanged();
-                showLoading(false);
+                Company company = listCompany.get(0);
+                company_name.setText(company.getName());
+                company_email.setText(company.getEmail());
+                company_phone.setText(company.getPhone());
+                supervisior_phone.setText(company.getSupervisior_contact());
             }
         }
     };
+    // !! company adapter buang aja !!
+
+
     private void showLoading(Boolean state) {
         if (state) {
             recyclerView.setVisibility(View.GONE);
