@@ -1,15 +1,17 @@
 package com.example.uas.fragment;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.AlarmClock;
-import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -22,7 +24,9 @@ import java.util.Calendar;
 
 public class NotificationFragment extends Fragment {
 
-    EditText h, m;
+    AlarmManager alarmManager;
+    PendingIntent pendingIntent;
+    TextView h, m;
     Button tm, rem;
     TimePickerDialog timePickerDialog;
     Calendar c;
@@ -43,6 +47,7 @@ public class NotificationFragment extends Fragment {
                 current_h = c.get(Calendar.HOUR_OF_DAY);
                 current_m = c.get(Calendar.MINUTE);
                 timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                    @SuppressLint("DefaultLocale")
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         h.setText(String.format("%02d", hourOfDay));
@@ -57,7 +62,7 @@ public class NotificationFragment extends Fragment {
             public void onClick(View v) {
                 if (!h.getText().toString().isEmpty() && !m.getText().toString().isEmpty()) {
                     int hr = Integer.parseInt(h.getText().toString());
-                    int mn = Integer.parseInt(h.getText().toString());
+                    int mn = Integer.parseInt(m.getText().toString());
                     Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
                     intent.putExtra(AlarmClock.EXTRA_HOUR, hr);
                     intent.putExtra(AlarmClock.EXTRA_MINUTES, mn);
