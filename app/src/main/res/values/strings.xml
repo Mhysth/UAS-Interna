@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Interna</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="youremail">Your Email</string>
+    <string name="yourpassword">Your Password</string>
+    <string name="timeline">Timeline</string>
+    <string name="report">Report</string>
+    <string name="account">Account</string>
+    <string name="login">Login</string>
+    <string name="submit">Submit</string>
+    <string name="terkumpul">Terkumpul</string>
+    <string name="belumterkumpul">Belum Terkumpul</string>
+    <string name="timeline_list">Timeline List</string>
+    <string name="report_list">Report List</string>
+    <string name="logout">Logout</string>
+    <string name="name">Name</string>
+    <string name="nim">NIM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="show_password">Show password</string>
+    <string name="timeline_tb">Timeline</string>
+    <string name="report_tb">Report</string>
+    <string name="account_tb">Account</string>
+</resources>
