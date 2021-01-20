@@ -1,19 +1,14 @@
 package com.example.uas;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import com.example.uas.fragment.AccountFragment;
 import com.example.uas.fragment.NotificationFragment;
 import com.example.uas.fragment.TimelineFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,5 +42,4 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-
 }
