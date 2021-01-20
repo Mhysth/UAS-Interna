@@ -50,7 +50,6 @@ public class Splash extends AppCompatActivity {
             }, 2500);
         }
         Animation a = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-        Animation b = AnimationUtils.loadAnimation(this, R.anim.fade_out);
         logo.startAnimation(a);
     }
 }
