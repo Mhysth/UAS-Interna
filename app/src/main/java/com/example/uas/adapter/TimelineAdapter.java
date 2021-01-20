@@ -1,20 +1,15 @@
 package com.example.uas.adapter;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.uas.R;
 import com.example.uas.model.local.Timeline;
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.CardViewViewHolder> {
     private Context context;
     private List<Timeline> listTimeline;
@@ -42,12 +37,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.CardVi
         holder.time.setText(timeline.getTime());
         holder.title.setText(timeline.getTitle());
         holder.desc.setText(timeline.getDesc());
-       /* holder.itemView.setOnClickListener(v -> {
-            NavDirections action = TimelineFragmentDirections.actionDetailFragment(null, timeline);
-            Navigation.findNavController(v).navigate(action);
-        });*/
     }
-    @NonNull
     @Override
     public int getItemCount() {
         return getListTimeline().size();

@@ -1,5 +1,4 @@
 package com.example.uas.fragment;
-
 import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -13,15 +12,10 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
-
 import com.example.uas.R;
-
 import java.util.ArrayList;
 import java.util.Calendar;
-
-
 public class NotificationFragment extends Fragment {
-
     ArrayList<Integer> days = new ArrayList<>();
     TextView h, m;
     Button tm, rem;
@@ -29,9 +23,7 @@ public class NotificationFragment extends Fragment {
     Calendar c;
     int current_h;
     int current_m;
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
         h = view.findViewById(R.id.hour);
         m = view.findViewById(R.id.minute);

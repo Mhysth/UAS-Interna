@@ -3,10 +3,7 @@ package com.example.uas.network;
 import android.util.Log;
 
 import com.example.uas.model.local.Timeline;
-import com.example.uas.model.local.User;
 import com.example.uas.model.response.CompanyResponse;
-import com.example.uas.model.response.EventResponse;
-import com.example.uas.model.response.TimelineResponse;
 import com.example.uas.model.response.TokenResponse;
 import com.example.uas.model.response.UserResponse;
 import com.example.uas.utils.Constants;
@@ -19,7 +16,6 @@ import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
 
 public class RetrofitService {
     private Endpoints endpoints;
