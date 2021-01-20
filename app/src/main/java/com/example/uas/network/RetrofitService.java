@@ -1,5 +1,7 @@
 package com.example.uas.network;
 import android.util.Log;
+
+import com.example.uas.model.local.Report;
 import com.example.uas.model.local.Timeline;
 import com.example.uas.model.response.CompanyResponse;
 import com.example.uas.model.response.TokenResponse;
@@ -51,6 +53,9 @@ public class RetrofitService {
     }
     public Call<TokenResponse> login(String email, String password) {
         return endpoints.login(email, password);
+    }
+    public Call<List<Report>> getReport() {
+        return endpoints.getReport();
     }
     public Call<List<Timeline>> getTimeline() {
         return endpoints.getTimeline();

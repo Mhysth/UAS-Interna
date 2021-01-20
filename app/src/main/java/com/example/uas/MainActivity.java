@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 import com.example.uas.fragment.AccountFragment;
+import com.example.uas.fragment.ReportFragment;
 import com.example.uas.fragment.NotificationFragment;
 import com.example.uas.fragment.TimelineFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         //I added this if statement to keep the selected fragment when rotating the device
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_main,
-                    new TimelineFragment()).commit();
+                    new ReportFragment()).commit();
         }
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
                     switch (item.getItemId()) {
+                        case R.id.nav_d:
+                            selectedFragment = new ReportFragment();
+                            break;
                         case R.id.nav_t:
                             selectedFragment = new TimelineFragment();
                             break;
