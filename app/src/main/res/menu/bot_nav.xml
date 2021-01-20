@@ -2,10 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_d"
-        android:icon="@drawable/ic_baseline_dashboard_24"
-        android:title="Dashboard" />
-    <item
         android:id="@+id/nav_t"
         android:icon="@drawable/ic_baseline_event_note_24"
         android:title="@string/timeline" />
