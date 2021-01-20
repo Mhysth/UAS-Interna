@@ -7,6 +7,24 @@
     tools:context=".Login">
 
 
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="470dp"
+        android:layout_height="347dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_wave_satu" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="414dp"
+        android:layout_height="218dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/top_wave_blue" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="345dp"
@@ -55,25 +73,6 @@
             android:textColor="@color/black" />
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="1041dp"
-        android:layout_height="847dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="413dp"
-        android:layout_height="440dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/only_bottom_radius" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -86,9 +85,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.134" />
 
     <Button
         android:id="@+id/login_btn"

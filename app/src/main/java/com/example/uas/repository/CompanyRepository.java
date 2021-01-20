@@ -19,28 +19,23 @@ public class CompanyRepository {
     private static CompanyRepository companyRepository;
     private RetrofitService apiService;
     private static final String TAG = "CompanyRepository";
-
     private CompanyRepository(String token) {
         Log.d(TAG, "CompanyRepository: " + token);
         apiService = RetrofitService.getInstance(token);
     }
-
     public static CompanyRepository getInstance(String token) {
         if (companyRepository == null) {
             companyRepository = new CompanyRepository(token);
         }
         return companyRepository;
     }
-
     public synchronized void resetInstance() {
         if (companyRepository != null) {
             companyRepository= null;
         }
     }
-
     public MutableLiveData<List<Company>> getCompany() {
         MutableLiveData<List<Company>> listCompany = new MutableLiveData<>();
-
         apiService.getCompany().enqueue(new Callback<CompanyResponse>() {
             @Override
             public void onResponse(Call<CompanyResponse> call, Response<CompanyResponse> response) {
@@ -52,15 +47,11 @@ public class CompanyRepository {
                     }
                 }
             }
-
             @Override
             public void onFailure(Call<CompanyResponse> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
-
         return listCompany;
     }
-
-
 }

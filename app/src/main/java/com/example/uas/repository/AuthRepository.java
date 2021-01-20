@@ -21,21 +21,17 @@ public class AuthRepository {
     private static AuthRepository authRepository;
     private RetrofitService apiService;
     private static final String TAG = "AuthRepository";
-
     private AuthRepository() {
         apiService = RetrofitService.getInstance("");
     }
-
     public static AuthRepository getInstance() {
         if (authRepository == null) {
             authRepository = new AuthRepository();
         }
         return authRepository;
     }
-
     public MutableLiveData<TokenResponse> login(String email, String password) {
         MutableLiveData<TokenResponse> tokenResponse = new MutableLiveData<>();
-
         apiService.login(email, password).enqueue(new Callback<TokenResponse>() {
             @Override
             public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
@@ -47,19 +43,11 @@ public class AuthRepository {
                     }
                 }
             }
-
             @Override
             public void onFailure(Call<TokenResponse> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
-
         return tokenResponse;
-    }
-
-
-
-    public void register() {
-
     }
 }
