@@ -1,7 +1,9 @@
 package com.example.uas;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,11 +17,14 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.uas.utils.SharedPreferenceHelper;
 import com.example.uas.viewModel.LoginViewModel;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 public class Login extends AppCompatActivity {
     @BindView(R.id.edtEmail)
     EditText editEmail;
@@ -33,6 +38,7 @@ public class Login extends AppCompatActivity {
     private LoginViewModel viewModel;
     private SharedPreferenceHelper helper;
     AlphaAnimation klik = new AlphaAnimation(1F, 0.6F);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,12 +51,14 @@ public class Login extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mail = editEmail.getText().toString().trim();
                 pass = editPassword.getText().toString().trim();
                 btnLogin.setEnabled(!mail.isEmpty() && !pass.isEmpty());
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -75,6 +83,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
     @OnClick({R.id.login_btn})
     public void onClick(View view) {
         switch (view.getId()) {
