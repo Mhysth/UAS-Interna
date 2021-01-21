@@ -26,4 +26,18 @@ public class TimelineViewModel extends ViewModel {
         Log.d(TAG, "onCleared: ");
         repository.resetInstance();
     }
+    /*
+
+    private ReportRepository repository;
+    private static final String TAG = "ReportViewModel";
+    public ReportViewModel() {
+    }
+    public void init(String token) {
+        Log.d(TAG, "init: " + token);
+        repository = ReportRepository.getInstance(token);
+    }
+    public LiveData<List<Report>> getReport() {
+        return repository.getReport();
+    }
+     */
 }
